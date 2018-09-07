@@ -1,0 +1,12 @@
+{
+  "hotimg": [{
+    "img": "/static/hot2.jpg",
+    "url": "index"
+  }, {
+    "img": "/static/hot3.jpg",
+    "url": "index"
+  }, {
+    "img": "/static/hot4.jpg",
+    "url": "index"
+  }]
+}

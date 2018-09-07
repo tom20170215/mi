@@ -1,0 +1,10 @@
+@mixin panel($bgcolor: #F5F5F5, $padding: 0, $margin: 0, $fontsize: 22px, $color: #333) {
+    background: $bgcolor;
+    padding: $padding;
+    margin: $margin;
+    h2{
+        font-size: $fontsize;
+        color: $color;
+        float: left;
+    }
+}
