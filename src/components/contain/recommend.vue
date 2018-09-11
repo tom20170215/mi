@@ -52,7 +52,8 @@ export default {
         { "border-top": "1px solid #00c0a5" }
       ],
       // list左边初始距离
-      listleft: 0
+      listleft: 0,
+      doAnimated: true
     };
   },
   computed: {
@@ -63,13 +64,14 @@ export default {
   methods: {
     back() {
       let that = this;
-      if (this.page <= 0) {
+      if (this.page <= 0 || !this.doAnimated) {
         return;
       }
       new TWEEN.Tween(this.$data)
         .to({ listleft: that.listleft + 1240 }, 300)
         .start()
         .onComplete(function() {
+          that.doAnimated = true
           if (that.page <= 0) {
             that.left = '/static/left2.png'
             return;
@@ -77,24 +79,26 @@ export default {
           that.right = '/static/right1.png'
         });
       animate();
+      this.doAnimated = false
     },
     forward() {
       let that = this;
-      if (this.page >= 2) {
+      if (this.page >= 2 || !this.doAnimated) {
         return;
       }
       new TWEEN.Tween(this.$data)
         .to({ listleft: that.listleft - 1240 }, 300)
         .start()
         .onComplete(function() {
+          that.doAnimated = true
           if (that.page >= 2) {
-            that.right = "/static/right2.png";
+            that.right = "/static/right2.png"
             return;
           }
-            that.left = '/static/left1.png';
-            console.log('1')
+            that.left = '/static/left1.png'
         });
       animate();
+      this.doAnimated = false
     }
   },
   mounted() {

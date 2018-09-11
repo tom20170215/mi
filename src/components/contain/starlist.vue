@@ -55,7 +55,8 @@ export default {
         { "border-top": "1px solid #e53935" },
         { "border-top": "1px solid #ffac13" }
       ],
-      starlistleft: 0
+      starlistleft: 0,
+      doAnimate: true
     };
   },
   computed: {
@@ -66,31 +67,35 @@ export default {
   methods: {
     forward() {
       let that = this;
-      if (that.page >= 1) {
+      if (that.page >= 1 || !this.doAnimate) {
         return;
       }
       new TWEEN.Tween(this.$data)
         .to({ starlistleft: that.starlistleft - 1234 }, 300)
         .start()
         .onComplete(function() {
-          that.right = "/static/right2.png";
-          that.left = "/static/left1.png";
+          that.right = "/static/right2.png"
+          that.left = "/static/left1.png"
+          that.doAnimate = true
         });
       animate();
+      this.doAnimate = false;
     },
     back() {
       let that = this;
-      if (that.page <= 0) {
+      if (that.page <= 0 || !this.doAnimate) {
         return;
       }
       new TWEEN.Tween(this.$data)
         .to({ starlistleft: that.starlistleft + 1234 }, 300)
         .start()
         .onComplete(function() {
-          that.left = "/static/left2.png";
-          that.right = "/static/right1.png";
+          that.left = "/static/left2.png"
+          that.right = "/static/right1.png"
+          that.doAnimate = true
         });
       animate();
+      this.doAnimate = false
     }
   },
   created() {

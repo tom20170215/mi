@@ -1,5 +1,6 @@
 <template>
     <div>
+        <banner></banner>
         <Head/>
         <ContainerIndex/>
         <Footer></Footer>
@@ -8,12 +9,14 @@
 </template>
 
 <script>
+import Banner from './banner'
 import Head from './head'
 import ContainerIndex from './contain/containIndex'
 import Map from './map'
 import Footer from './footer'
 export default {
     components: {
+        Banner,
         Head,
         ContainerIndex,
         Map,
