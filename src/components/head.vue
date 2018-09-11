@@ -1,5 +1,6 @@
 <template>
     <div :class="$style.head">
+        <div id="anchor"></div>
         <div class="comWidth clearfix">
             <ul :class="$style.leftArea">
                 <li v-for="(item, index) in items" :key="index">
