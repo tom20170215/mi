@@ -301,9 +301,7 @@ export default {
 
 <style lang='scss'>
 @import "swiper/dist/css/swiper.css";
-.swiper-container {
-  height: 340px;
-}
+
 .swiper-button-prev,
 .swiper-button-next {
   top: 37%;

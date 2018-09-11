@@ -4,7 +4,6 @@
         <ul :class="[$style.nav_list]">
             <li v-for="(item, index) in navs" :key="index" @mouseover="toggleNavmenu(index)" @mouseout="toggleNavmenu(index)">
                 <a :href="item.url" :class="$style.navtitle">{{item.name}}</a>
-                <transition name="fade" >
                 <div :class="$style.navMenu" v-show="item.navmenushow">
                     <ul :class="[$style.nav_menu_list, 'clearfix']">
                         <li v-for="(phone, name) in item.navlist" :key="name">
@@ -15,8 +14,7 @@
                             <p>{{phone.price}}元</p>
                         </li>
                     </ul>
-                </div>                    
-                </transition>
+                </div>
             </li>
         </ul>
         <div :class="$style.search">
@@ -30,7 +28,6 @@
                         <a href="#">小米手机4</a>
                     </div>
             </form>
-            <transition name="fade" enter-to-class="animated fadeInDown faster" leave-active-class="animated fadeOutUp faster">
                 <ul :class="$style.search_extra" v-show="extrashow">
                 <li v-for="(item, index) in searchs" :key="index">
                     <a :href=item.url>
@@ -39,8 +36,6 @@
                     </a>
                 </li>
             </ul>        
-            </transition>
-
         </div>
     </div>
 </template>
@@ -89,6 +84,7 @@ export default {
       ],
       hotWord: true,
       extrashow: false,
+      componentId: 'navMenu0',
       searchs: [
         {
           url: "#",
@@ -141,7 +137,6 @@ export default {
           num: 22
         }
       ],
-      Navmenu: false
     };
   },
   methods: {
@@ -156,7 +151,7 @@ export default {
     },
     toggleNavmenu (index) {
         if (!this.navs[index].navmenushow) {
-            this.navs[index].navmenushow = true
+           this.navs[index].navmenushow = true
             return
         }
         this.navs[index].navmenushow = false
@@ -231,7 +226,7 @@ export default {
     }
   }
   .search {
-    float: left;
+    float: right;
     width: 300px;
     height: 50px;
     position: relative;
